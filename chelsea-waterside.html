@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chelsea Waterside Playground Review - The Stumpjumpers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+
+  body {
+    background-color: #d6d3ce;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: #0000EE;
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: #551A8B;
+  }
+
+  table.outerLayout {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #d6d3ce;
+  }
+
+  /* LEFT SIDEBAR */
+  td.leftNav {
+    background-color: #00204d;
+    color: #FFFF00;
+    width: 170px;
+    vertical-align: top;
+    padding: 10px;
+    border-right: 4px solid #001233;
+  }
+
+  td.leftNav h3 {
+    color: #FFFF66;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    border-bottom: 1px dashed #FFFF00;
+    padding-bottom: 3px;
+    margin-top: 18px;
+    margin-bottom: 4px;
+  }
+
+  td.leftNav h4 {
+    color: #FFFF66;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 13px;
+    border-bottom: 1px dashed #FFFF00;
+    padding-bottom: 3px;
+    margin-top: 18px;
+    margin-bottom: 4px;
+  }
+
+  td.leftNav ul {
+    list-style-type: square;
+    padding-left: 18px;
+    margin-top: 4px;
+  }
+
+  td.leftNav ul li {
+    margin-bottom: 5px;
+  }
+
+  td.leftNav a {
+    color: #FFFF00;
+  }
+
+  td.leftNav a:visited {
+    color: #FFCC00;
+  }
+
+  /* CENTER CONTENT */
+  td.centerContent {
+    background-color: #ffffff;
+    vertical-align: top;
+    padding: 12px;
+    border-left: 2px solid #999999;
+    border-right: 2px solid #999999;
+  }
+
+  /* RIGHT SIDEBAR */
+  td.rightNav {
+    background-color: #e8e8e4;
+    width: 190px;
+    vertical-align: top;
+    padding: 10px;
+  }
+
+  td.rightNav h3 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    background-color: #cccccc;
+    border: 1px solid #999999;
+    padding: 3px 5px;
+    margin-top: 20px;
+    margin-bottom: 6px;
+  }
+
+  /* BANNER */
+  table.bannerTable {
+    width: 100%;
+    border: 4px ridge #800080;
+    background-color: #ffcc00;
+    background-image: repeating-linear-gradient(45deg, #ffcc00, #ffcc00 12px, #ff9900 12px, #ff9900 24px);
+    margin-bottom: 14px;
+  }
+
+  table.bannerTable td {
+    text-align: center;
+    padding: 18px 10px;
+  }
+
+  .bannerTitle {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: #800080;
+    text-shadow: 2px 2px 0px #ffffff;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  .bannerSubtitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #003366;
+    background-color: #ffffff;
+    display: inline-block;
+    padding: 3px 10px;
+    margin-top: 4px;
+    border: 1px solid #800080;
+  }
+
+  hr.sectionBreak {
+    border: none;
+    border-top: 2px dashed #999999;
+    margin: 18px 0;
+  }
+
+  h1.pageHeading {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    color: #003366;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .postTitle {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 17px;
+    font-weight: bold;
+    color: #800000;
+    background-color: #eeeecc;
+    border: 1px solid #999999;
+    padding: 4px 8px;
+    margin-bottom: 2px;
+  }
+
+  .postMeta {
+    font-size: 11px;
+    color: #555555;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  .postBody {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 4px;
+  }
+
+  .newBadge {
+    color: #ffffff;
+    background-color: #cc0000;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 1px 4px;
+    margin-left: 6px;
+  }
+
+  .hitCounterBox {
+    text-align: center;
+    border: 2px inset #999999;
+    background-color: #000000;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  .hitCounterDigits {
+    font-family: "Courier New", monospace;
+    font-size: 22px;
+    font-weight: bold;
+    color: #00FF00;
+    background-color: #000000;
+    letter-spacing: 4px;
+    border: 1px solid #444444;
+    padding: 4px 6px;
+    display: inline-block;
+  }
+
+  .hitCounterLabel {
+    color: #cccccc;
+    font-size: 10px;
+    margin-top: 4px;
+  }
+
+  .commentBox {
+    border: 1px solid #999999;
+    background-color: #f4f4f0;
+    padding: 8px;
+  }
+
+  .footerBar {
+    background-color: #00204d;
+    color: #FFFF00;
+    text-align: center;
+    font-size: 11px;
+    padding: 6px;
+  }
+
+  marquee {
+    background-color: #000080;
+    color: #FFFF00;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    padding: 3px;
+  }
+
+  /* RATING STUMPS */
+  .stumpRating {
+    text-align: center;
+    font-size: 26px;
+    margin: 8px 0;
+  }
+
+  .ratingCaption {
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #800000;
+    margin-bottom: 10px;
+  }
+
+  table.factTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 10px 0 16px 0;
+    border: 1px solid #999999;
+  }
+
+  table.factTable th {
+    background-color: #eeeecc;
+    text-align: left;
+    padding: 4px 6px;
+    border: 1px solid #999999;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  table.factTable td {
+    padding: 4px 6px;
+    border: 1px solid #999999;
+    background-color: #ffffff;
+  }
+
+</style>
+
+<script type="text/javascript">
+  function submitComment() {
+    var nameField = document.forms["commentForm"]["visitorName"].value;
+    var commentField = document.forms["commentForm"]["commentText"].value;
+
+    if (nameField === "" || commentField === "") {
+      alert("Please fill in your name and a comment before submitting, partner!");
+      return false;
+    }
+
+    alert("Thanks for signing our guestbook, " + nameField + "! (This is a placeholder - comments are not really saved.)");
+    document.forms["commentForm"]["commentText"].value = "";
+    document.forms["commentForm"]["visitorName"].value = "";
+    return false;
+  }
+</script>
+
+</head>
+
+<body>
+
+<marquee behavior="scroll" direction="left" scrollamount="4">
+  Welcome to The Stumpjumpers!!! Website Under Construction *** More monkey bars coming soon *** Sign our guestbook! ***
+</marquee>
+
+<table class="outerLayout" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+
+    <!-- LEFT SIDEBAR -->
+    <td class="leftNav">
+
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Playground Map</a></li>
+        <li><a href="#">Guestbook</a></li>
+      </ul>
+
+      <h3>All-Time Greatest Playgrounds</h3>
+      <ul>
+        <li><a href="#">Adventure Playground, Central Park</a></li>
+        <li><a href="#">Imagination Playground, Manhattan</a></li>
+        <li><a href="#">Domino Park, Williamsburg</a></li>
+        <li><a href="#">J.J. Byrne Playground, Park Slope</a></li>
+      </ul>
+
+      <h3>Best Playgrounds for Visiting Families</h3>
+      <ul>
+        <li><a href="#">Heckscher Playground</a></li>
+        <li><a href="#">Pier 6 Playgrounds, Brooklyn Bridge Park</a></li>
+        <li><a href="#">Bleecker Playground</a></li>
+        <li><a href="#">Nelson A. Rockefeller Park</a></li>
+      </ul>
+
+      <h3>Locals-Only Hidden Gem Playgrounds</h3>
+      <ul>
+        <li><a href="chelsea-waterside.html">Chelsea Waterside Playground</a></li>
+        <li><a href="#">Elizabeth Street Garden Nook</a></li>
+        <li><a href="#">Sunset Park Slide Hill</a></li>
+        <li><a href="#">Marlton Ave Pocket Park</a></li>
+      </ul>
+
+      <h4>Not Worth the Subway Fare</h4>
+      <ul>
+        <li><a href="#">Balsey Park</a></li>
+        <li><a href="#">Dinosaur Playground</a></li>
+      </ul>
+
+      <p style="font-size:10px; color:#FFCC00; margin-top:20px;">
+        &copy; 2026 The Stumpjumpers Crew<br>
+        Best viewed at 800x600
+      </p>
+
+    </td>
+
+    <!-- CENTER CONTENT -->
+    <td class="centerContent">
+
+      <table class="bannerTable" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td>
+            <div class="bannerTitle">THE STUMPJUMPERS</div>
+            <div class="bannerSubtitle">Reviewing NYC's Playgrounds One Weekend at a Time!</div>
+          </td>
+        </tr>
+      </table>
+
+      <h1 class="pageHeading">~*~ Playground Review: Chelsea Waterside Playground ~*~</h1>
+
+      <div class="postTitle">Hidden in Plain Sight: Chelsea Waterside Playground <span class="newBadge">NEW!</span></div>
+      <div class="postMeta">Posted by MulchMaven on Tuesday, June 30, 2026 | 3 Comments</div>
+
+      <div class="stumpRating">&#127796;&#127796;&#127796;&#127796;&#127796;</div>
+      <div class="ratingCaption">5 Stumps Out of 5!</div>
+
+      <table class="factTable" cellpadding="0" cellspacing="0">
+        <tr>
+          <th>Neighborhood</th>
+          <td>Chelsea, Manhattan</td>
+        </tr>
+        <tr>
+          <th>Crowd Level</th>
+          <td>Locals only &mdash; tourists never find it</td>
+        </tr>
+        <tr>
+          <th>Best Feature</th>
+          <td>Fastest slide in the borough</td>
+        </tr>
+        <tr>
+          <th>Stumpjumpers Rating</th>
+          <td>5 out of 5 Stumps</td>
+        </tr>
+      </table>
+
+      <div class="postBody">
+        We almost didn't write this review, because part of us wants to keep Chelsea Waterside Playground a secret
+        forever. Tucked away between the ballfields and the community garden, this spot is hidden in plain
+        sight&mdash;you could walk right past the entrance on a busy Chelsea afternoon and never know one of the
+        best playgrounds in the city was sitting right there. That's exactly why it stays so wonderfully uncrowded.
+        We rolled in on a Saturday expecting a fight for space and instead found plenty of room to spread out a
+        blanket and let the kids run wild.
+      </div>
+
+      <div class="postBody">
+        The real star here is the slide. We're talking the fastest slide the Stumpjumpers crew has clocked
+        anywhere in NYC&mdash;steep, smooth, and just the right amount of terrifying for the eight-and-up crowd.
+        The water features are just as impressive, with jets and sprays that had everyone soaked and grinning
+        within minutes of arriving. It's easily one of the better splash setups we've reviewed all season.
+      </div>
+
+      <div class="postBody">
+        The playground's decorative fish sculpture is looking a little worse for wear these days&mdash;some
+        chipped paint and a few battle scars from years of joyful climbing&mdash;but honestly, it just adds to the
+        charm. Our one real gripe: the name is a bit of false advertising. Despite being called "Waterside," the
+        actual Hudson River is across 12th Avenue and the West Side Highway, so don't expect river views from the
+        swings. Minor quibble aside, this is a five-stump playground through and through, and we're only telling
+        you about it because we trust you to keep it locals-only.
+      </div>
+
+      <hr class="sectionBreak">
+
+      <p style="text-align:center;"><a href="index.html">&laquo; Back to the Blog</a></p>
+
+    </td>
+
+    <!-- RIGHT SIDEBAR -->
+    <td class="rightNav">
+
+      <h3>Visitor Counter</h3>
+      <div class="hitCounterBox">
+        <div class="hitCounterDigits">0 0 1 3 0 8</div>
+        <div class="hitCounterLabel">You are visitor number shown above!</div>
+      </div>
+
+      <h3>Site Poll</h3>
+      <p style="font-size:12px;">
+        Best NYC playground feature?<br>
+        <input type="radio" name="poll" checked> Monkey bars<br>
+        <input type="radio" name="poll"> Sprinklers<br>
+        <input type="radio" name="poll"> Tire swings<br>
+        <input type="radio" name="poll"> Sandboxes<br>
+        <input type="button" value="Vote!">
+      </p>
+
+      <h3>Comments Section</h3>
+      <div class="commentBox">
+        <form name="commentForm" onsubmit="return submitComment();">
+          <p style="margin:2px 0;">
+            <label for="visitorName">Your Name:</label><br>
+            <input type="text" id="visitorName" name="visitorName" size="20">
+          </p>
+          <p style="margin:2px 0;">
+            <label for="commentText">Your Comment:</label><br>
+            <textarea id="commentText" name="commentText" rows="5" cols="22" placeholder="Tell us about your visit..."></textarea>
+          </p>
+          <input type="submit" value="Submit Comment">
+          <input type="reset" value="Clear">
+        </form>
+      </div>
+
+      <h3>Web Ring</h3>
+      <p style="font-size:11px; text-align:center;">
+        [ <a href="#">Prev Site</a> | <a href="#">NYC Parents Web Ring</a> | <a href="#">Next Site</a> ]
+      </p>
+
+      <h3>Sponsors</h3>
+      <p style="font-size:11px; text-align:center; border:1px dashed #999999; padding:10px;">
+        Your Banner Ad Here!<br>468x60
+      </p>
+
+    </td>
+
+  </tr>
+</table>
+
+<div class="footerBar">
+  &copy; 2026 The Stumpjumpers. All rights reserved. Site optimized for Netscape Navigator 4.0.
+  Please do not steal our playground reviews.
+</div>
+
+</body>
+</html>
