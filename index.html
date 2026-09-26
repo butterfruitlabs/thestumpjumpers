@@ -127,7 +127,22 @@ h2.sectionHead { font-family: "Times New Roman", Times, serif; color: var(--navy
 .lightbox img { max-width: 88vw; max-height: 80vh; display: block; margin: 0 auto; }
 .lightbox figcaption { font-size: 12px; font-style: italic; margin-top: 4px; }
 
+.menuToggle { display: none; }
+.toTop { display: none; }
 @media (max-width: 820px) {
+  .toTop { position: fixed; right: 14px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); z-index: 40; width: 52px; height: 52px; background: var(--nav); color: #FFFF00; border: 3px outset #FFFF00; font-family: Arial, sans-serif; font-weight: bold; font-size: 16px; line-height: 1; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 2px; box-shadow: 2px 2px 0 #000; }
+  .toTop span { font-size: 10px; letter-spacing: 1px; }
+  .toTop:active { border-style: inset; }
+  .toTop.show { display: flex; }
+}
+@media (max-width: 820px) {
+  td.leftNav { padding: 0; }
+  .menuToggle { display: block; width: 100%; text-align: left; background: var(--nav); color: #FFFF00; border: none; border-bottom: 2px solid #FFFF00; font-family: "Times New Roman", Times, serif; font-size: 17px; font-weight: bold; padding: 12px 14px; cursor: pointer; letter-spacing: 1px; }
+  .menuToggle .menuHint { font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; color: #b8c4ff; letter-spacing: 0; }
+  .navBody { display: none; padding: 4px 14px 14px; }
+  .navBody.open { display: block; }
+  .thumbLeft { float: none; display: block; width: 100%; height: auto; max-height: 280px; object-fit: cover; margin: 0 0 10px 0; }
+  .visitSummary { text-align: left; }
   table.outerLayout, table.outerLayout > tbody, table.outerLayout > tbody > tr, table.outerLayout > tbody > tr > td { display: block; width: 100%; }
   td.leftNav, td.rightNav { width: 100%; border: none; }
   td.leftNav .navCols { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); column-gap: 14px; }
@@ -142,6 +157,7 @@ h2.sectionHead { font-family: "Times New Roman", Times, serif; color: var(--navy
 </head>
 <body>
 <div id="app"></div>
+<button type="button" class="toTop" id="toTop" aria-label="Back to top">&#9650;<span>TOP</span></button>
 <div class="lightbox" id="lightbox" role="dialog" aria-label="Enlarged photo"><figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure></div>
 
 <script>
@@ -857,7 +873,7 @@ function nycMap(opts) {
     app.innerHTML = `
 <div class="marquee" aria-hidden="true"><marquee behavior="scroll" direction="left" scrollamount="4">Welcome to The Stumpjumpers!!! *** 18 playgrounds reviewed and counting *** Just added: Slide Hill, Pier 51 &amp; Tarr-Coyne Tots *** Staten Island Never Included *** 1000 Playgrounds Within 10 Miles ***</marquee></div>
 <table class="outerLayout" cellpadding="0" cellspacing="0" border="0"><tr>
-<td class="leftNav"><div class="navCols">
+<td class="leftNav"><button type="button" class="menuToggle" id="menuToggle" aria-expanded="false" aria-controls="navBody">&#9776; MENU <span class="menuHint">(Home, Map &amp; Categories)</span></button><div class="navBody" id="navBody"><div class="navCols">
   <div><h3>Navigation</h3><ul>
     <li><a href="#/">Home</a></li>
     <li><a href="#/map">Playground Map</a></li>
@@ -868,6 +884,7 @@ function nycMap(opts) {
   </div>
   <p style="font-size:10px; color:#FFCC00; margin-top:20px;">&copy; 2026 The Stumpjumpers Crew<br>Best viewed at 800x600</p>
   <div class="construction"><span>UNDER CONSTRUCTION</span></div>
+  </div>
 </td>
 <td class="centerContent">
   <table class="bannerTable" cellpadding="0" cellspacing="0" border="0"><tr><td>
@@ -886,6 +903,8 @@ function nycMap(opts) {
 </td></tr></table>
 <div class="footerBar">&copy; 2026 The Stumpjumpers. All rights reserved. Site optimized for Netscape Navigator 4.0. Please do not steal our playground reviews.</div>`;
     wireThumbs();
+    const mt = document.getElementById("menuToggle"), nb = document.getElementById("navBody");
+    mt.addEventListener("click", () => { const open = nb.classList.toggle("open"); mt.setAttribute("aria-expanded", open); mt.firstChild.textContent = (open ? "\u2715 CLOSE MENU " : "\u2630 MENU "); });
     showDigits(null);
     initHomeData();
     if (scrollTo) { const el = document.getElementById(scrollTo); if (el) el.scrollIntoView(); } else window.scrollTo(0, 0);
@@ -1027,6 +1046,13 @@ function nycMap(opts) {
 
   }
 
+  // ---------- BACK TO TOP (mobile) ----------
+  const toTop = document.getElementById("toTop");
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  toTop.addEventListener("click", () => window.scrollTo({top: 0, behavior: reduceMotion ? "auto" : "smooth"}));
+  const updateTop = () => toTop.classList.toggle("show", window.scrollY > 700);
+  window.addEventListener("scroll", updateTop, {passive: true});
+
   // ---------- ROUTER ----------
   function route() {
     lb.classList.remove("open");
@@ -1036,8 +1062,9 @@ function nycMap(opts) {
     if (h === "#/map") { unsubs.forEach(u => { try { u(); } catch (e) {} }); unsubs = []; renderMapPage(); return; }
     renderHome(null);
   }
-  window.addEventListener("hashchange", route);
+  window.addEventListener("hashchange", () => { route(); updateTop(); });
   route();
+  updateTop();
 })();
 </script>
 </body>
