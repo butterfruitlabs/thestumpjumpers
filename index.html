@@ -149,12 +149,12 @@ h2.sectionHead { font-family: "Times New Roman", Times, serif; color: var(--navy
    Paste the firebaseConfig values from your Firebase project below.
    Leave apiKey empty and the counter will simply show a fixed number. */
 const FIREBASE_CONFIG = {
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyA5VBA6j4vQtzAOr8uFhifTmmIcL_UKfFk",
+  authDomain: "stumpjumpershitcounter.firebaseapp.com",
+  projectId: "stumpjumpershitcounter",
+  storageBucket: "stumpjumpershitcounter.firebasestorage.app",
+  messagingSenderId: "804440607834",
+  appId: "1:804440607834:web:b2b51b328a30a5443fdc63" 
 };
 </script>
 <script>
@@ -820,7 +820,7 @@ function nycMap(opts) {
 (function () {
   const STUMP_FULL = '<svg class="stumpIcon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="12" rx="1" fill="#6b4226" stroke="#3d2410" stroke-width="0.8"/><line x1="7" y1="11" x2="6.3" y2="21" stroke="#4a2f18" stroke-width="0.6"/><line x1="12" y1="11" x2="12" y2="21" stroke="#4a2f18" stroke-width="0.6"/><line x1="17" y1="11" x2="17.7" y2="21" stroke="#4a2f18" stroke-width="0.6"/><ellipse cx="12" cy="10" rx="8" ry="4" fill="#c98a4b" stroke="#5c3a1e" stroke-width="0.9"/><ellipse cx="12" cy="10" rx="5.5" ry="2.7" fill="none" stroke="#8a5a2e" stroke-width="0.7"/><ellipse cx="12" cy="10" rx="3" ry="1.5" fill="none" stroke="#8a5a2e" stroke-width="0.7"/></svg>';
   const STUMP_EMPTY = '<svg class="stumpIcon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="12" rx="1" fill="#eae7de" stroke="#b8b4a8" stroke-width="0.8"/><line x1="7" y1="11" x2="6.3" y2="21" stroke="#c9c5b8" stroke-width="0.6"/><line x1="12" y1="11" x2="12" y2="21" stroke="#c9c5b8" stroke-width="0.6"/><line x1="17" y1="11" x2="17.7" y2="21" stroke="#c9c5b8" stroke-width="0.6"/><ellipse cx="12" cy="10" rx="8" ry="4" fill="#f2f0e8" stroke="#c9c5b8" stroke-width="0.9"/><ellipse cx="12" cy="10" rx="5.5" ry="2.7" fill="none" stroke="#d6d3c8" stroke-width="0.7"/><ellipse cx="12" cy="10" rx="3" ry="1.5" fill="none" stroke="#d6d3c8" stroke-width="0.7"/></svg>';
-  const COUNTER_BASE = 4271;
+  const COUNTER_BASE = 0;
   const app = document.getElementById("app");
   const vDate = p => { const [y, m, d] = p.visited.slice(0, 10).split("-").map(Number); return new Date(y, m - 1, d); };
   PLAYGROUNDS.sort((a, b) => b.visited.localeCompare(a.visited));
