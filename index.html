@@ -57,7 +57,9 @@ h1.pageHeading { font-family: "Times New Roman", Times, serif; font-size: 20px; 
 @keyframes blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .blink { animation: none; } }
 .visitSummary { font-family: Georgia, "Times New Roman", serif; font-size: 13px; line-height: 1.55; text-align: justify; margin-bottom: 10px; }
-.thumbLeft { display: block; width: 100%; height: auto; max-height: 380px; object-fit: cover; object-position: center bottom; margin: 2px 0 12px 0; border: 3px solid #999999; padding: 3px; background: #fff; box-shadow: 3px 3px 5px #888; cursor: pointer; }
+.thumbLeft { float: left; width: 45%; height: auto; margin: 2px 16px 10px 0; border: 3px solid #999999; padding: 3px; background: #fff; box-shadow: 3px 3px 5px #888; cursor: pointer; }
+.thumbLeft.tall { width: 30%; }
+.visitSummary::after { content: ""; display: block; clear: both; }
 .readMore { font-weight: bold; font-size: 12px; }
 .catTag { font-style: normal; font-weight: bold; }
 .cat-gems { color: #006600; } .cat-trip { color: #0033aa; } .cat-avoid { color: #aa0000; }
@@ -151,7 +153,7 @@ h2.sectionHead { font-family: "Times New Roman", Times, serif; color: var(--navy
   .menuToggle .menuHint { font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; color: #b8c4ff; letter-spacing: 0; }
   .navBody { display: none; padding: 4px 14px 14px; }
   .navBody.open { display: block; }
-  .thumbLeft { max-height: 280px; margin: 0 0 10px 0; }
+  .thumbLeft, .thumbLeft.tall { float: none; display: block; width: 100%; max-height: 280px; object-fit: cover; object-position: center bottom; margin: 0 0 10px 0; }
   .visitSummary { text-align: left; }
   table.outerLayout, table.outerLayout > tbody, table.outerLayout > tbody > tr, table.outerLayout > tbody > tr > td { display: block; width: 100%; }
   td.leftNav, td.rightNav { width: 100%; border: none; }
@@ -968,8 +970,8 @@ function nycMap(opts) {
     let posts = "";
     PLAYGROUNDS.forEach((p, i) => {
       posts += `<div class="postTitle"><a href="#/p/${p.slug}">${p.title}</a>${p.isNew ? ' <span class="newBadge blink">NEW!</span>' : ""}</div>
-      <div class="postMeta">Most Recently Visited On ${p.dateStr}${filed(p)}</div>
-      <div class="visitSummary"><img class="thumbLeft" src="${IMG[p.hero]}" alt="${esc(p.caps[p.hero].replace(/&[a-z]+;/g, ""))}" data-cap="${esc(p.caps[p.hero])}" width="150">${p.snippet} <a class="readMore" href="#/p/${p.slug}">Read the full review &raquo;</a></div>
+      <div class="postMeta">Most Recently Reviewed On ${p.dateStr}${filed(p)}</div>
+      <div class="visitSummary"><img class="thumbLeft${DIMS[p.hero] && DIMS[p.hero][1] > DIMS[p.hero][0] ? " tall" : ""}" src="${IMG[p.hero]}" alt="${esc(p.caps[p.hero].replace(/&[a-z]+;/g, ""))}" data-cap="${esc(p.caps[p.hero])}" width="150">${p.snippet} <a class="readMore" href="#/p/${p.slug}">Read the full review &raquo;</a></div>
       ${ratingsHTML(p, true)}
       ${i < PLAYGROUNDS.length - 1 ? '<hr class="sectionBreak">' : ""}`;
     });
@@ -1042,7 +1044,7 @@ function nycMap(opts) {
     const main = nycMap({id: "m", w: 520, h: 440, center, span: p.span, pins: [{p: p.pt, label: p.name, below: !!p.labelBelow}], aria: "Cartoon map showing " + p.name + " with nearby subway stations and bike paths"});
     const mini = nycMap({id: "n", w: 170, h: 250, center: [-73.985, 40.748], span: 0.062, mini: true, pins: [{p: p.pt}], box: main.bounds, aria: "Where in the city"});
     app.innerHTML = `<div class="reviewPage">
-  <div class="reviewHeader"><div class="site">&#9733; THE STUMPJUMPERS &#9733;</div><h1>${p.title}</h1><div class="where">${p.where}</div><div class="postMeta" style="margin:4px 0 0">Most Recently Visited On ${p.dateStr}${filed(p)}</div></div>
+  <div class="reviewHeader"><div class="site">&#9733; THE STUMPJUMPERS &#9733;</div><h1>${p.title}</h1><div class="where">${p.where}</div><div class="postMeta" style="margin:4px 0 0">Most Recently Reviewed On ${p.dateStr}${filed(p)}</div></div>
   <div class="reviewBody">${body}</div>
   <h2 class="sectionHead">The Stump Report</h2>
   ${ratingsHTML(p, false)}
