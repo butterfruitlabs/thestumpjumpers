@@ -60,6 +60,7 @@ h1.pageHeading { font-family: "Times New Roman", Times, serif; font-size: 20px; 
 .thumbLeft { float: left; width: 45%; height: auto; margin: 2px 16px 10px 0; border: 3px solid #999999; padding: 3px; background: #fff; box-shadow: 3px 3px 5px #888; cursor: pointer; }
 .thumbLeft.tall { width: 30%; }
 .visitSummary::after { content: ""; display: block; clear: both; }
+.visitSummary .ratingsBlock { clear: none; display: flow-root; margin: 10px 0 0; text-align: left; font-family: Arial, Helvetica, sans-serif; line-height: 1.35; }
 .readMore { font-weight: bold; font-size: 12px; }
 .catTag { font-style: normal; font-weight: bold; }
 .cat-gems { color: #006600; } .cat-trip { color: #0033aa; } .cat-avoid { color: #aa0000; }
@@ -971,8 +972,7 @@ function nycMap(opts) {
     PLAYGROUNDS.forEach((p, i) => {
       posts += `<div class="postTitle"><a href="#/p/${p.slug}">${p.title}</a>${p.isNew ? ' <span class="newBadge blink">NEW!</span>' : ""}</div>
       <div class="postMeta">Most Recently Reviewed On ${p.dateStr}${filed(p)}</div>
-      <div class="visitSummary"><img class="thumbLeft${DIMS[p.hero] && DIMS[p.hero][1] > DIMS[p.hero][0] ? " tall" : ""}" src="${IMG[p.hero]}" alt="${esc(p.caps[p.hero].replace(/&[a-z]+;/g, ""))}" data-cap="${esc(p.caps[p.hero])}" width="150">${p.snippet} <a class="readMore" href="#/p/${p.slug}">Read the full review &raquo;</a></div>
-      ${ratingsHTML(p, true)}
+      <div class="visitSummary"><img class="thumbLeft${DIMS[p.hero] && DIMS[p.hero][1] > DIMS[p.hero][0] ? " tall" : ""}" src="${IMG[p.hero]}" alt="${esc(p.caps[p.hero].replace(/&[a-z]+;/g, ""))}" data-cap="${esc(p.caps[p.hero])}" width="150">${p.snippet} <a class="readMore" href="#/p/${p.slug}">Read the full review &raquo;</a>${ratingsHTML(p, true)}</div>
       ${i < PLAYGROUNDS.length - 1 ? '<hr class="sectionBreak">' : ""}`;
     });
     app.innerHTML = `
