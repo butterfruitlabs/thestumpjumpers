@@ -83,6 +83,21 @@ var TAGLINES = [
     upd();
   }
 
+  /* Contact buttons: the address is only assembled when a person clicks,
+     so spam bots scanning the page code never see it. */
+  var parts = ["dadsrepmujpmutseht", "moc.liamg"];
+  var rev = function (x) { return x.split("").reverse().join(""); };
+  Array.prototype.forEach.call(document.querySelectorAll(".contactBtn"), function (btn) {
+    btn.addEventListener("click", function () {
+      var addr = rev(parts[0]) + "\u0040" + rev(parts[1]);
+      var subject = encodeURIComponent(btn.getAttribute("data-topic") || "Hello");
+      var href = "mai" + "lto:" + addr + "?subject=" + subject;
+      var out = btn.parentNode.querySelector(".contactReveal");
+      if (out) out.innerHTML = '<a href="' + href + '">' + addr + '</a>';
+      window.location.href = href;
+    });
+  });
+
   /* Hit counter (home page only) */
   var digits = document.getElementById("hitDigits");
   if (digits) {

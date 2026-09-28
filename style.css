@@ -60,7 +60,7 @@ h1.pageHeading { font-family: "Times New Roman", Times, serif; font-size: 20px; 
 .ratingRow { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
 .ratingLabel { flex: 0 0 92px; font-family: "Times New Roman", Times, serif; font-weight: bold; font-size: 12.5px; color: var(--navy); }
 .ratingStumps { flex: 0 0 auto; white-space: nowrap; align-self: center; }
-.stumpIcon { width: 17px; height: 17px; vertical-align: -3px; margin-right: 1px; }
+.stumpIcon { width: 20px; height: 20px; vertical-align: -4px; margin-right: 3px; }
 .ratingJustify { flex: 1 1 auto; font-size: 11.5px; color: var(--muted); font-style: italic; }
 .sqft { font-style: italic; font-weight: normal; }
 @media (max-width: 560px) { .ratingRow { flex-wrap: wrap; row-gap: 1px; } .ratingJustify { flex-basis: 100%; padding-left: 0; } }
@@ -163,13 +163,37 @@ h2.sectionHead { font-family: "Times New Roman", Times, serif; color: var(--navy
 .aboutBox h2 { font-family: Georgia, "Times New Roman", serif; color: var(--purple); font-size: 22px; margin: 0 0 8px; text-align: center; }
 .aboutBox p { font-family: Georgia, "Times New Roman", serif; font-size: 14px; line-height: 1.6; margin: 0 0 10px; }
 .aboutPics { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; align-items: flex-start; margin: 6px 0 12px; }
-.aboutPics figure { margin: 0; width: 46%; border: 3px solid #999; padding: 3px; background: #fff; box-shadow: 3px 3px 5px #888; cursor: pointer; }
+.aboutPics figure { margin: 0; width: 60%; border: 3px solid #999; padding: 3px; background: #fff; box-shadow: 3px 3px 5px #888; cursor: pointer; }
 .aboutPics img { display: block; width: 100%; height: auto; }
 .aboutPics figcaption { font-size: 11px; font-style: italic; color: #555; text-align: center; padding-top: 4px; font-family: Arial, sans-serif; }
 .reviewHeader .site a, .reviewHeader .site a:visited { color: var(--purple); text-decoration: none; }
 .moveText { font-family: Georgia, serif; font-size: 14px; line-height: 1.7; margin: 10px 0 0; }
 .moveText b { color: var(--navy); }
 @media (max-width: 820px) { .aboutPics figure { width: 100%; } }
+.bannerRow { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.bannerBike { width: 160px; height: auto; image-rendering: pixelated; image-rendering: crisp-edges; flex: 0 0 auto; margin: -6px 0 -8px; }
+.bannerText { flex: 0 1 auto; min-width: 0; }
+@media (max-width: 820px) {
+  .bannerRow { flex-direction: column; gap: 2px; }
+  .bannerBike { width: 140px; margin: -6px 0 2px; order: -1; }
+  .bikeLeft { display: none; }
+}
+
+@media (min-width: 821px) and (max-width: 1180px) {
+  .bikeLeft { display: none; }
+  .bannerBike { width: 120px; }
+  .bannerTitle { font-size: 31px; }
+  .visitSummary .ratingRow { flex-wrap: wrap; row-gap: 1px; }
+  .visitSummary .ratingJustify { flex-basis: 100%; }
+}
+@media (min-width: 821px) and (max-width: 960px) { .bannerTitle { font-size: 25px; } .bannerBike { width: 100px; } }
+.adBox { font-size: 11px; text-align: center; border: 1px dashed #999999; padding: 10px; background: #f4f4f0; }
+.adBox p { margin: 0 0 8px; }
+.contactLine { text-align: center; border-top: 2px dashed #c9a; margin-top: 12px; padding-top: 10px; }
+.contactLine p { text-align: center; margin: 0 0 8px; }
+.contactBtn { font-weight: bold; }
+.contactReveal { margin-top: 6px; font-size: 12px; word-break: break-all; }
+.contactReveal a { font-weight: bold; }
 h1.bannerTitle { margin: 0; }
 h2.postTitle { margin: 0 0 2px; }
 article { display: block; }
