@@ -194,6 +194,18 @@ h2.sectionHead { font-family: "Times New Roman", Times, serif; color: var(--navy
 .contactBtn { font-weight: bold; }
 .contactReveal { margin-top: 6px; font-size: 12px; word-break: break-all; }
 .contactReveal a { font-weight: bold; }
+.pollBox { font-size: 12px; border: 1px solid #999; background: #f4f4f0; padding: 8px; }
+.pollQ { font-weight: bold; margin: 0 0 6px; font-family: "Times New Roman", serif; font-size: 13px; color: var(--navy); }
+.pollBox label { display: block; margin: 2px 0; cursor: pointer; }
+.pollBox .btn95 { margin-top: 6px; }
+.pollPeek { font-size: 10px; margin-left: 6px; }
+.pollRow { font-size: 11px; display: flex; justify-content: space-between; gap: 6px; margin-top: 4px; }
+.pollRow a { font-weight: bold; }
+.pollBarWrap { background: #e2dfd6; border: 1px inset #bbb; height: 9px; margin: 1px 0 3px; }
+.pollBar { height: 100%; background: repeating-linear-gradient(90deg, #ff9900 0 6px, #ffb733 6px 12px); }
+.pollRow .mine { color: #800080; }
+.pollTotal { font-size: 10px; color: #555; font-style: italic; margin-top: 6px; text-align: center; }
+.pollMsg { font-size: 11px; color: #800000; margin-top: 4px; min-height: 1em; }
 h1.bannerTitle { margin: 0; }
 h2.postTitle { margin: 0 0 2px; }
 article { display: block; }

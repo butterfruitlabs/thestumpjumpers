@@ -173,6 +173,24 @@
 <td class="rightNav">
   <h3>Visitor Counter</h3>
   <div class="hitCounterBox"><div class="hitCounterDigits" id="hitDigits" aria-live="polite"><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span><span>0</span></div><div class="hitCounterLabel" id="hitLabel">You are visitor number shown above!</div></div>
+  <h3>Site Poll</h3>
+  <div class="pollBox" id="pollBox">
+    <p class="pollQ">What's your favorite playground in NYC?</p>
+    <form id="pollForm" onsubmit="return false;">
+      <label><input type="radio" name="fav" value="heckscher"> Heckscher</label>
+      <label><input type="radio" name="fav" value="pier6"> Pier 6 Brooklyn</label>
+      <label><input type="radio" name="fav" value="battery"> Battery Playscape</label>
+      <label><input type="radio" name="fav" value="domino"> Domino Park</label>
+      <label><input type="radio" name="fav" value="pier26"> Pier 26 (Sturgeon)</label>
+      <label><input type="radio" name="fav" value="yard"> The Yard</label>
+      <label><input type="radio" name="fav" value="other"> Other</label>
+      <button type="button" class="btn95" id="voteBtn">Vote!</button>
+      <a href="#" class="pollPeek" id="pollPeek">View results</a>
+    </form>
+    <div id="pollResults" hidden></div>
+    <div class="pollMsg" id="pollMsg" aria-live="polite"></div>
+  </div>
+  <script>window.SJ_POLL_LINKS={"heckscher":"heckscher-playground.html","pier6":"pier-6-brooklyn-bridge-park.html","battery":"battery-playscape.html","domino":"domino-park-playground.html","pier26":"pier-26-science-playground.html","yard":"the-yard-governors-island.html"};</script>
   <h3>Advertise Here</h3>
   <div class="adBox">
     <p><b>Your Banner Ad Here!</b><br>468x60</p>
