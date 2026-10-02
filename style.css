@@ -206,6 +206,9 @@ h2.sectionHead { font-family: "Times New Roman", Times, serif; color: var(--navy
 .pollRow .mine { color: #800080; }
 .pollTotal { font-size: 10px; color: #555; font-style: italic; margin-top: 6px; text-align: center; }
 .pollMsg { font-size: 11px; color: #800000; margin-top: 4px; min-height: 1em; }
+.sponsorBox img { display: block; width: 150px; max-width: 100%; height: auto; margin: 0 auto 6px; border: 2px solid #333; }
+.sponsorName { font-weight: bold; font-size: 12px; margin: 0 0 10px !important; }
+.sponsorAsk { font-size: 10px; color: #555; border-top: 1px dotted #aaa; padding-top: 8px; }
 h1.bannerTitle { margin: 0; }
 h2.postTitle { margin: 0 0 2px; }
 article { display: block; }
