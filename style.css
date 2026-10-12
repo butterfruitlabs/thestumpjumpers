@@ -103,6 +103,7 @@ h1.pageHeading { font-family: "Times New Roman", Times, serif; font-size: 20px; 
 .rowPic.tall { width: 34%; }
 .rowPic.solo { width: 72%; }
 .rowPic.solo.tall { width: 42%; }
+.rowPic.solo.feature { width: 100%; }
 .rowPic img { max-height: 360px; object-fit: cover; }
 h2.sectionHead { font-family: "Times New Roman", Times, serif; color: var(--navy); font-size: 19px; border-bottom: 2px solid #ccc; padding-bottom: 3px; margin: 22px 0 10px; clear: both; }
 .album { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
