@@ -188,3 +188,29 @@ var TAGLINES = [
     });
   }
 })();
+
+/* Fill the empty space beside tall home-page photos with the start of the review. */
+(function () {
+  function fillExcerpts() {
+    var list = document.querySelectorAll(".visitSummary");
+    for (var i = 0; i < list.length; i++) {
+      var vs = list[i], img = vs.querySelector(".thumbLeft"), mt = vs.querySelector(".moreText");
+      if (!img || !mt) continue;
+      mt.style.display = "none"; mt.style.height = "";
+      if (window.getComputedStyle(img).cssFloat === "none") continue; /* stacked mobile layout */
+      var avail = img.getBoundingClientRect().bottom - vs.getBoundingClientRect().top;
+      var used = 0, kids = vs.children;
+      mt.style.display = "flow-root"; mt.style.height = "0px";
+      var top = mt.getBoundingClientRect().top - vs.getBoundingClientRect().top;
+      var room = Math.floor(avail - top - 4);
+      if (room < 70) { mt.style.display = "none"; continue; }
+      mt.style.height = room + "px";
+    }
+  }
+  var timer;
+  function later() { clearTimeout(timer); timer = setTimeout(fillExcerpts, 120); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fillExcerpts); else fillExcerpts();
+  window.addEventListener("load", fillExcerpts);
+  window.addEventListener("resize", later);
+  window.addEventListener("orientationchange", later);
+})();

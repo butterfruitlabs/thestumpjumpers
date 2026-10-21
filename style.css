@@ -236,3 +236,17 @@ article.interlude .postTitle { background-color: #d9f0e8; }
 .factsBox { display: grid; grid-template-columns: 1fr 1fr; column-gap: 18px; margin: 0 0 14px; border: 2px dashed #0a7a6e; background: #eef8f4; padding: 8px 12px; font: 12px/1.6 Arial, Helvetica, sans-serif; }
 .factsHead { grid-column: 1 / -1; font: bold 15px "Times New Roman", Times, serif; color: #0a7a6e; border-bottom: 1px dashed #0a7a6e; margin-bottom: 4px; padding-bottom: 2px; }
 @media (max-width: 820px) { .factsBox { grid-template-columns: 1fr; } }
+
+/* ---- Half stumps ---- */
+.halfStump { position: relative; display: inline-block; }
+.halfStump .stumpIcon + .stumpIcon { position: absolute; left: 0; top: 0; clip-path: inset(0 50% 0 0); }
+.halfStump .stumpIcon { vertical-align: -4px; }
+.halfStump { vertical-align: 0; }
+
+/* ---- Home page: review excerpt fills space beside tall photos (sized by site.js) ---- */
+.visitSummary .moreText { display: none; position: relative; overflow: hidden; margin: 10px 0 0; --fade: var(--paper, #fff); }
+article.interlude .visitSummary .moreText { --fade: #eef8f4; }
+.moreText .moreHead { font: bold 14px "Times New Roman", Times, serif; color: var(--purple); border-bottom: 1px dotted #999; margin-bottom: 6px; padding-bottom: 3px; }
+.moreText p { margin: 0 0 8px; }
+.moreText::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3.5em; background: linear-gradient(to bottom, transparent, var(--fade)); pointer-events: none; }
+.moreText .keepReading { position: absolute; right: 0; bottom: 0; z-index: 1; background: var(--fade); padding: 0 0 0 8px; font-weight: bold; font-size: 12px; }
