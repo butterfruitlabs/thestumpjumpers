@@ -21,7 +21,8 @@ var TAGLINES = [
   "Biking to Every NYC Playground So You Know Which Ones Are Worth It",
   "One Dad, One Kid, One Old Bike: Honest Reviews of NYC Playgrounds",
   "Honest NYC Playground Reviews, Dad-Tested and Kid-Approved",
-  "The Straight Scoop on NYC Playgrounds"
+  "The Straight Scoop on NYC Playgrounds",
+  "The King of the Monkey Bars Types Again!"
 ];
 
 (function () {
