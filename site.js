@@ -9,7 +9,7 @@ var FIREBASE_CONFIG = {
   messagingSenderId: "804440607834",
   appId: "1:804440607834:web:b2b51b328a30a5443fdc63"
 };
-var COUNTER_BASE = 0;
+var COUNTER_BASE = 10000;
 
 var TAGLINES = [
   "Honest NYC Playground Reviews from a Dad Who Actually Goes Down the Slide",
@@ -214,4 +214,13 @@ var TAGLINES = [
   window.addEventListener("load", fillExcerpts);
   window.addEventListener("resize", later);
   window.addEventListener("orientationchange", later);
+})();
+
+/* Make sure looping "GIF" videos start, even where autoplay is fussy. */
+(function () {
+  var vids = document.querySelectorAll("video[autoplay]");
+  for (var i = 0; i < vids.length; i++) {
+    var v = vids[i]; v.muted = true;
+    try { var p = v.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {}
+  }
 })();

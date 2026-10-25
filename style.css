@@ -250,3 +250,8 @@ article.interlude .visitSummary .moreText { --fade: #eef8f4; }
 .moreText p { margin: 0 0 8px; }
 .moreText::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3.5em; background: linear-gradient(to bottom, transparent, var(--fade)); pointer-events: none; }
 .moreText .keepReading { position: absolute; right: 0; bottom: 0; z-index: 1; background: var(--fade); padding: 0 0 0 8px; font-weight: bold; font-size: 12px; }
+
+.inlinePic video { display: block; width: 100%; height: auto; }
+.inlinePic.videoPic { cursor: default; }
+.rowPic.solo.videoPic { width: 45%; }
+@media (max-width: 820px) { .rowPic.solo.videoPic { width: 100%; } }
