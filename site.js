@@ -190,22 +190,48 @@ var TAGLINES = [
   }
 })();
 
-/* Fill the empty space beside tall home-page photos with the start of the review. */
+/* Fill empty space on home-page posts with the start of the review:
+   beside the photo when the photo is taller, or under the photo when the text side is taller. */
 (function () {
   function fillExcerpts() {
     var list = document.querySelectorAll(".visitSummary");
     for (var i = 0; i < list.length; i++) {
       var vs = list[i], img = vs.querySelector(".thumbLeft"), mt = vs.querySelector(".moreText");
       if (!img || !mt) continue;
+      var left = vs.querySelector(".moreLeft");
       mt.style.display = "none"; mt.style.height = "";
+      if (left) left.style.display = "none";
       if (window.getComputedStyle(img).cssFloat === "none") continue; /* stacked mobile layout */
-      var avail = img.getBoundingClientRect().bottom - vs.getBoundingClientRect().top;
-      var used = 0, kids = vs.children;
-      mt.style.display = "flow-root"; mt.style.height = "0px";
-      var top = mt.getBoundingClientRect().top - vs.getBoundingClientRect().top;
-      var room = Math.floor(avail - top - 4);
-      if (room < 70) { mt.style.display = "none"; continue; }
-      mt.style.height = room + "px";
+      var vsTop = vs.getBoundingClientRect().top;
+      var imgBottom = img.getBoundingClientRect().bottom - vsTop;
+      /* bottom of the text column (snippet + Stump Report) */
+      var rb = vs.querySelector(".ratingsBlock");
+      var textBottom = (rb ? rb.getBoundingClientRect().bottom : vs.getBoundingClientRect().top) - vsTop;
+      if (imgBottom - textBottom >= 70) {
+        /* photo is taller: fill beside it */
+        mt.style.display = "flow-root"; mt.style.height = "0px";
+        var top = mt.getBoundingClientRect().top - vsTop;
+        var room = Math.floor(imgBottom - top - 4);
+        if (room < 60) { mt.style.display = "none"; continue; }
+        mt.style.height = room + "px";
+      } else if (textBottom - imgBottom >= 80) {
+        /* text side is taller: fill under the photo */
+        if (!left) {
+          left = document.createElement("div");
+          left.className = "moreText moreLeft";
+          left.setAttribute("aria-hidden", "true");
+          left.innerHTML = mt.innerHTML;
+          img.parentNode.insertBefore(left, img.nextSibling);
+        }
+        var cs = window.getComputedStyle(img);
+        left.style.width = img.offsetWidth + "px";
+        left.style.marginRight = cs.marginRight;
+        left.style.display = "block"; left.style.height = "0px";
+        var ltop = left.getBoundingClientRect().top - vsTop;
+        var lroom = Math.floor(textBottom - ltop);
+        if (lroom < 70) { left.style.display = "none"; continue; }
+        left.style.height = lroom + "px";
+      }
     }
   }
   var timer;

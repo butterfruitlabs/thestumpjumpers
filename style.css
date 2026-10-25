@@ -255,3 +255,4 @@ article.interlude .visitSummary .moreText { --fade: #eef8f4; }
 .inlinePic.videoPic { cursor: default; }
 .rowPic.solo.videoPic { width: 45%; }
 @media (max-width: 820px) { .rowPic.solo.videoPic { width: 100%; } }
+.visitSummary .moreText.moreLeft { float: left; clear: left; margin-top: 4px; box-sizing: border-box; }
