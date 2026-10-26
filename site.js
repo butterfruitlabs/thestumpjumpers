@@ -146,6 +146,8 @@ var TAGLINES = [
       ["heckscher", "Heckscher"], ["pier6", "Pier 6 Brooklyn"], ["battery", "Battery Playscape"],
       ["domino", "Domino Park"], ["pier26", "Pier 26 (Sturgeon)"], ["yard", "The Yard"], ["other", "Other"]
     ];
+    /* Starting votes added on top of the real ones stored in Firebase */
+    var POLL_BASE = {heckscher: 460, pier6: 1241, battery: 988, domino: 871, pier26: 1432, yard: 109, other: 363};
     var LINKS = window.SJ_POLL_LINKS || {};
     var form = document.getElementById("pollForm"), results = document.getElementById("pollResults");
     var msg = document.getElementById("pollMsg"), voteBtn = document.getElementById("voteBtn");
@@ -153,9 +155,9 @@ var TAGLINES = [
     var latest = null;
     var render = function (t) {
       latest = t;
-      var total = 0; CHOICES.forEach(function (c) { total += t[c[0]] || 0; });
+      var total = 0; CHOICES.forEach(function (c) { total += (t[c[0]] || 0) + (POLL_BASE[c[0]] || 0); });
       var html = CHOICES.map(function (c) {
-        var n = t[c[0]] || 0, pct = total ? Math.round(100 * n / total) : 0;
+        var n = (t[c[0]] || 0) + (POLL_BASE[c[0]] || 0), pct = total ? Math.round(100 * n / total) : 0;
         var name = LINKS[c[0]] ? '<a href="' + LINKS[c[0]] + '">' + c[1] + '</a>' : c[1];
         return '<div class="pollRow"><span class="' + (myVote === c[0] ? "mine" : "") + '">' + name + (myVote === c[0] ? " &#9733;" : "") +
           '</span><span>' + n + '</span></div><div class="pollBarWrap"><div class="pollBar" style="width:' + pct + '%"></div></div>';
@@ -163,6 +165,7 @@ var TAGLINES = [
       results.innerHTML = html + '<div class="pollTotal">' + total + " vote" + (total === 1 ? "" : "s") + " so far!</div>";
     };
     var showResults = function () { form.hidden = true; results.hidden = false; };
+    render({});
     if (myVote) { showResults(); msg.textContent = "Thanks for voting!"; }
     var unsub = null;
     getFS().then(function (F) {
@@ -221,7 +224,8 @@ var TAGLINES = [
           left.className = "moreText moreLeft";
           left.setAttribute("aria-hidden", "true");
           left.innerHTML = mt.innerHTML;
-          img.parentNode.insertBefore(left, img.nextSibling);
+          var anchor = (img.parentNode && img.parentNode.tagName === "A") ? img.parentNode : img;
+          anchor.parentNode.insertBefore(left, anchor.nextSibling);
         }
         var cs = window.getComputedStyle(img);
         left.style.width = img.offsetWidth + "px";

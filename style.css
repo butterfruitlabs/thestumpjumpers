@@ -256,3 +256,6 @@ article.interlude .visitSummary .moreText { --fade: #eef8f4; }
 .rowPic.solo.videoPic { width: 45%; }
 @media (max-width: 820px) { .rowPic.solo.videoPic { width: 100%; } }
 .visitSummary .moreText.moreLeft { float: left; clear: left; margin-top: 4px; box-sizing: border-box; }
+.cat-tots { color: #b3478f; }
+td.leftNav ol.totsList { margin: 0; padding-left: 22px; }
+td.leftNav ol.totsList li { color: #FFFF66; margin-bottom: 6px; }
