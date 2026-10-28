@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /excerpts.json
 
 Sitemap: https://thestumpjumpers.com/sitemap.xml

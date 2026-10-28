@@ -240,8 +240,29 @@ var TAGLINES = [
   }
   var timer;
   function later() { clearTimeout(timer); timer = setTimeout(fillExcerpts, 120); }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fillExcerpts); else fillExcerpts();
+  /* Excerpts live in excerpts.json (not in the page HTML) so the home page doesn't
+     compete with the review pages in Google. Only fetched on wide screens. */
+  var loaded = false;
+  function loadExcerpts() {
+    if (loaded || !document.querySelector(".visitSummary") || window.innerWidth <= 820) { fillExcerpts(); return; }
+    loaded = true;
+    fetch("excerpts.json").then(function (r) { return r.json(); }).then(function (data) {
+      var list = document.querySelectorAll(".visitSummary");
+      for (var i = 0; i < list.length; i++) {
+        var vs = list[i], a = vs.querySelector("a.readMore"), f = a && a.getAttribute("href");
+        if (!f || !data[f] || vs.querySelector(".moreText")) continue;
+        var d = document.createElement("div");
+        d.className = "moreText"; d.setAttribute("aria-hidden", "true");
+        d.innerHTML = '<div class="moreHead">From the full review</div>' + data[f] +
+          '<a class="keepReading" href="' + f + '" tabindex="-1">Keep reading &raquo;</a>';
+        vs.appendChild(d);
+      }
+      fillExcerpts();
+    }).catch(function () {});
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", loadExcerpts); else loadExcerpts();
   window.addEventListener("load", fillExcerpts);
+  window.addEventListener("resize", function () { if (!loaded && window.innerWidth > 820) loadExcerpts(); });
   window.addEventListener("resize", later);
   window.addEventListener("orientationchange", later);
 })();
