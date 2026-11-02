@@ -98,6 +98,9 @@ h1.pageHeading { font-family: "Times New Roman", Times, serif; font-size: 20px; 
 .inlinePic .cap { font-size: 11px; font-style: italic; color: #555; text-align: center; padding-top: 4px; font-family: Arial, sans-serif; }
 .floatR { float: right; width: 44%; margin-left: 18px; }
 .floatR.tall { width: 32%; }
+.floatL { float: left; width: 44%; margin-right: 18px; }
+.floatL.tall { width: 32%; }
+.reviewBody .floatR, .reviewBody .floatL { clear: both; margin-top: 4px; }
 .picRow { clear: both; display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: flex-start; margin: 6px 0 18px; }
 .rowPic { width: 44%; margin: 0; }
 .rowPic.tall { width: 34%; }
@@ -151,7 +154,7 @@ h2.sectionHead { font-family: "Times New Roman", Times, serif; color: var(--navy
   td.leftNav, td.rightNav { width: 100%; border: none; }
   td.leftNav .navCols { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); column-gap: 14px; }
   .bannerTitle { font-size: 28px; }
-    .floatR, .floatR.tall, .rowPic, .rowPic.tall, .rowPic.solo, .rowPic.solo.tall { float: none; width: 100%; margin: 0 0 12px 0; }
+    .floatR, .floatR.tall, .floatL, .floatL.tall, .rowPic, .rowPic.tall, .rowPic.solo, .rowPic.solo.tall { float: none; width: 100%; margin: 0 0 12px 0; }
     .picRow { display: block; margin: 0; }
   .reviewPage { padding: 12px 12px 24px; border: none; }
   .reviewBody p { font-size: 14.5px; text-align: left; }
@@ -281,3 +284,11 @@ ol.guideList { list-style: none; margin: 0; padding: 0; }
 .guideNote { background: #fffbe6; border: 1px dashed #c9a400; padding: 7px 10px; font-size: 12.5px; margin: 0 0 6px; }
 .guideMore { border-top: 3px double var(--purple); margin-top: 14px; padding-top: 10px; font-size: 13px; }
 @media (max-width: 820px) { .guideThumb { float: none; width: 100%; margin: 0 0 10px; } }
+
+/* ---- Equal-height photo rows (any mix of wide and tall photos lines up) ---- */
+.picRow.justRow { flex-wrap: nowrap; align-items: flex-start; justify-content: center; gap: 14px; max-width: 92%; margin-left: auto; margin-right: auto; }
+.picRow.justRow .rowPic.just { width: auto; min-width: 0; }
+.picRow.justRow .rowPic.just img, .picRow.justRow .rowPic.just video { width: 100%; height: auto; max-height: none; object-fit: fill; display: block; }
+.rowPic.solo { width: 62%; }
+.rowPic.solo.tall { width: 38%; }
+@media (max-width: 820px) { .picRow.justRow { flex-wrap: wrap; max-width: 100%; } .picRow.justRow .rowPic.just { flex: 1 1 100% !important; } }
