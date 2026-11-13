@@ -96,18 +96,6 @@ h1.pageHeading { font-family: "Times New Roman", Times, serif; font-size: 20px; 
 .inlinePic { border: 3px solid #999; padding: 3px; background: #fff; box-shadow: 3px 3px 5px #888; margin-bottom: 10px; cursor: pointer; }
 .inlinePic img { display: block; width: 100%; height: auto; }
 .inlinePic .cap { font-size: 11px; font-style: italic; color: #555; text-align: center; padding-top: 4px; font-family: Arial, sans-serif; }
-.floatR { float: right; width: 44%; margin-left: 18px; }
-.floatR.tall { width: 32%; }
-.floatL { float: left; width: 44%; margin-right: 18px; }
-.floatL.tall { width: 32%; }
-.reviewBody .floatR, .reviewBody .floatL { clear: both; margin-top: 4px; }
-.picRow { clear: both; display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: flex-start; margin: 6px 0 18px; }
-.rowPic { width: 44%; margin: 0; }
-.rowPic.tall { width: 34%; }
-.rowPic.solo { width: 72%; }
-.rowPic.solo.tall { width: 42%; }
-.rowPic.solo.feature { width: 100%; }
-.rowPic img { max-height: 360px; object-fit: cover; }
 h2.sectionHead { font-family: "Times New Roman", Times, serif; color: var(--navy); font-size: 19px; border-bottom: 2px solid #ccc; padding-bottom: 3px; margin: 22px 0 10px; clear: both; }
 .album { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 .album figure { margin: 0; width: 210px; border: 3px solid #999; padding: 3px; background: #fff; box-shadow: 2px 2px 4px #888; cursor: pointer; }
@@ -154,8 +142,6 @@ h2.sectionHead { font-family: "Times New Roman", Times, serif; color: var(--navy
   td.leftNav, td.rightNav { width: 100%; border: none; }
   td.leftNav .navCols { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); column-gap: 14px; }
   .bannerTitle { font-size: 28px; }
-    .floatR, .floatR.tall, .floatL, .floatL.tall, .rowPic, .rowPic.tall, .rowPic.solo, .rowPic.solo.tall { float: none; width: 100%; margin: 0 0 12px 0; }
-    .picRow { display: block; margin: 0; }
   .reviewPage { padding: 12px 12px 24px; border: none; }
   .reviewBody p { font-size: 14.5px; text-align: left; }
   .mapSide { flex: 1 1 100%; display: flex; gap: 10px; }
@@ -256,8 +242,6 @@ article.interlude .visitSummary .moreText { --fade: #eef8f4; }
 
 .inlinePic video { display: block; width: 100%; height: auto; }
 .inlinePic.videoPic { cursor: default; }
-.rowPic.solo.videoPic { width: 45%; }
-@media (max-width: 820px) { .rowPic.solo.videoPic { width: 100%; } }
 .visitSummary .moreText.moreLeft { float: left; clear: left; margin-top: 4px; box-sizing: border-box; }
 .cat-tots { color: #b3478f; }
 td.leftNav ol.totsList { margin: 0; padding-left: 22px; }
@@ -285,11 +269,28 @@ ol.guideList { list-style: none; margin: 0; padding: 0; }
 .guideMore { border-top: 3px double var(--purple); margin-top: 14px; padding-top: 10px; font-size: 13px; }
 @media (max-width: 820px) { .guideThumb { float: none; width: 100%; margin: 0 0 10px; } }
 
-/* ---- Equal-height photo rows (any mix of wide and tall photos lines up) ---- */
-.picRow.justRow { flex-wrap: nowrap; align-items: flex-start; justify-content: center; gap: 14px; max-width: 92%; margin-left: auto; margin-right: auto; }
-.picRow.justRow .rowPic.just { width: auto; min-width: 0; }
-.picRow.justRow .rowPic.just img, .picRow.justRow .rowPic.just video { width: 100%; height: auto; max-height: none; object-fit: fill; display: block; }
-.rowPic.solo { width: 62%; }
-.rowPic.solo.tall { width: 38%; }
-@media (max-width: 820px) { .picRow.justRow { flex-wrap: wrap; max-width: 100%; } .picRow.justRow .rowPic.just { flex: 1 1 100% !important; } }
-.rowPic.solo.tall img { max-height: none; }
+/* ---- Review photos (placed by build.py; widths are set per photo) ---- */
+.reviewBody { display: flow-root; }
+.reviewBody .albumNote { clear: both; }
+.ph { margin: 4px 0 14px; box-sizing: border-box; }
+.ph-r { float: right; clear: both; margin: 5px 0 12px 20px; }
+.ph-l { float: left; clear: both; margin: 5px 20px 12px 0; }
+.ph-solo { clear: both; margin: 4px auto 18px; }
+.ph-lead { clear: both; margin: 0 auto 16px; }
+.ph-row { clear: both; display: flex; gap: 14px; justify-content: center; align-items: flex-start; margin: 4px auto 18px; }
+.ph-row .ph { margin: 0; min-width: 0; }
+.ph img, .ph video { width: 100%; height: auto; display: block; }
+@media (max-width: 820px) {
+  .ph-r, .ph-l, .ph-solo, .ph-lead { float: none; width: 100% !important; margin: 0 0 14px; }
+  .ph-r.tall, .ph-l.tall, .ph-solo.tall { width: 74% !important; margin-left: auto; margin-right: auto; }
+  .ph-row { width: 100% !important; margin: 0 0 14px; gap: 10px; }
+  .ph-row:not(.keep) { display: block; margin: 0; }
+  .ph-row:not(.keep) .ph { margin: 0 0 14px; }
+  ul.nearby .nbMeta { display: block; margin: -4px 0 4px; }
+}
+/* ---- "More to Do Nearby" links ---- */
+ul.nearby { list-style: square; margin: 0 0 6px; padding-left: 22px; font-family: Georgia, "Times New Roman", serif; font-size: 14.5px; line-height: 1.9; }
+ul.nearby .nbMeta { font: italic 12px Arial, Helvetica, sans-serif; color: #555; margin-left: 4px; white-space: nowrap; }
+ul.nearby .stumpIcon { width: 15px; height: 15px; vertical-align: -3px; margin-right: 1px; }
+.rankLine { font: 13px Arial, Helvetica, sans-serif; margin: -2px 0 0; color: #333; }
+.rankLine b { color: var(--navy); }
