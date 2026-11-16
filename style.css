@@ -294,3 +294,22 @@ ul.nearby .nbMeta { font: italic 12px Arial, Helvetica, sans-serif; color: #555;
 ul.nearby .stumpIcon { width: 15px; height: 15px; vertical-align: -3px; margin-right: 1px; }
 .rankLine { font: 13px Arial, Helvetica, sans-serif; margin: -2px 0 0; color: #333; }
 .rankLine b { color: var(--navy); }
+/* ---- Big map: numbered markers + key ---- */
+.bigMap { max-width: 560px; margin: 0 auto; }
+.bigMap a.mapNum:hover circle, .bigMap a.mapNum:focus circle { fill: #800080; }
+.bigMap a.mapNum:hover text, .bigMap a.mapNum:focus text { fill: #ffff66; }
+ol.mapKey { list-style: none; margin: 16px 0 10px; padding: 0; columns: 2; column-gap: 26px; font: 14px Georgia, "Times New Roman", serif; }
+ol.mapKey li { break-inside: avoid; margin: 0 0 7px; display: flex; align-items: center; flex-wrap: wrap; gap: 0 6px; line-height: 1.3; }
+ol.mapKey .mkNum { flex: none; width: 22px; height: 22px; border-radius: 50%; background: #ffff66; border: 2px solid #800080; color: #800080; font: bold 11px Arial, sans-serif; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; }
+ol.mapKey .mkAvg { font: italic 11.5px Arial, sans-serif; color: #555; white-space: nowrap; }
+ol.mapKey .stumpIcon { width: 13px; height: 13px; vertical-align: -2px; }
+@media (max-width: 560px) { ol.mapKey { columns: 1; } }
+/* ---- Quick Facts box at the top of playground reviews ---- */
+.quickFacts { border: 2px dashed #0a7a6e; background: #eef8f4; padding: 8px 14px 6px; margin: 0 0 16px; font: 13px/1.5 Arial, Helvetica, sans-serif; }
+.qfHead { font: bold 15px "Times New Roman", Times, serif; color: #0a7a6e; border-bottom: 1px dashed #0a7a6e; margin-bottom: 5px; padding-bottom: 2px; }
+.qfRow { margin: 0 0 3px; display: grid; grid-template-columns: 112px 1fr; column-gap: 8px; }
+.qfLabel { font-weight: bold; color: #0a7a6e; }
+.qfVal .stumpIcon { width: 15px; height: 15px; vertical-align: -3px; }
+@media (max-width: 520px) { .qfRow { grid-template-columns: 1fr; } .qfLabel { margin-top: 2px; } }
+.bigMap a.mapNum text { text-decoration: none; }
+.bigMap svg a { text-decoration: none; }
