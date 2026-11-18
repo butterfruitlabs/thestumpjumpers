@@ -313,3 +313,4 @@ ol.mapKey .stumpIcon { width: 13px; height: 13px; vertical-align: -2px; }
 @media (max-width: 520px) { .qfRow { grid-template-columns: 1fr; } .qfLabel { margin-top: 2px; } }
 .bigMap a.mapNum text { text-decoration: none; }
 .bigMap svg a { text-decoration: none; }
+.ph-clear { clear: both; }
