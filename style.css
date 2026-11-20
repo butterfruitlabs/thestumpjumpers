@@ -314,3 +314,6 @@ ol.mapKey .stumpIcon { width: 13px; height: 13px; vertical-align: -2px; }
 .bigMap a.mapNum text { text-decoration: none; }
 .bigMap svg a { text-decoration: none; }
 .ph-clear { clear: both; }
+.sectionHead.topReport { margin-top: 6px; }
+.rankLine { margin: 6px 0 18px; }
+.cat-afterdark { color: #6a1b9a; }
